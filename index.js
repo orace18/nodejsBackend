@@ -8,7 +8,7 @@ const eventRoutes = require('./events/routes/eventRoutes');
 
 environnement.config();
 const port = process.env.port;
-const ip = "192.168.100.56";
+const ip = "192.168.0.108";
 const app = express();
 
 app.listen(port, ip, ()=>{

@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const verifierToken = (req, res, next) => {
+
   // Accéder au header d'autorisation de manière fiable
   const enteteAutorisation = req.headers.authorization;
 
@@ -12,7 +13,7 @@ const verifierToken = (req, res, next) => {
   const token = enteteAutorisation.split(' ')[1];
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
     req.user = decoded.user;
     next();
   } catch (error) {
