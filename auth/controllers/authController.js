@@ -25,7 +25,7 @@ exports.register = async (req, res) => {
     await newUser.save();
 
     const newWallet = new Wallet({
-      user: newUser._id,
+      utilisateur: newUser._id,
       balance: 0, 
     });
     await newWallet.save();
@@ -36,7 +36,7 @@ exports.register = async (req, res) => {
     res.status(201).json({
       message: 'Compte créé avec succès.',
       user: safeUserData,
-      balance,
+      balance: newWallet.balance,
       token,
     });
   } catch (error) {

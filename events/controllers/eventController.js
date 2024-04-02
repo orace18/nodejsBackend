@@ -35,7 +35,8 @@ exports.createEvent = async (req, res) => {
         lieu,
         date,
         heure,
-        image: req.file.path 
+        image: req.file.path,
+        userId,
       });
 
       await newEvent.save();
